@@ -112,9 +112,11 @@ if(isset($_GET['e'])){
 if(isset($_GET['wf'])){
 	$wf="3011"; //3011 for waterfront and blank for any site
 	$wfstatus = "checked";
+	$wfmsg = "waterfront ";
 } else {
 	$wf="";
 	$wfstatus = "";
+	$wfmsg = "";
 }
 
 if(isset($_GET['arr'])){
@@ -201,7 +203,7 @@ foreach($parkarray as $park){
 
 			$to      = $recipient;
 			$subject = 'Campsites found by Dan\'s Reserve America Scraper!!!';
-			$message = "There ".$isorare." ".$i." ".$siteorsites." available at ".$parkName." between ".$arr." and ".$dep.".\r\n\r\n".$url;
+			$message = "There ".$isorare." ".$i." ".$siteorsites." ".$wfmsg."available at ".$parkName." between ".$arr." and ".$dep.".\r\n\r\n".$url;
 			$headers = 'From: noreply@example.com' . "\r\n" .
 			    'Reply-To: noreply@example.com' . "\r\n" .
 			    'X-Mailer: PHP/' . phpversion();
@@ -211,6 +213,8 @@ foreach($parkarray as $park){
 			if ($threshold == true){
 				echo "</strong> <br><br>";
 			}
+		} else {
+			echo "Nothing found at ".$parkName.". <a href=\"".$url."\" target=_blank>Click here to view</a>.";		
 		}
 	}
 }
