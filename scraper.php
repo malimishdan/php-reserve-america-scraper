@@ -202,8 +202,8 @@ foreach($parkarray as $park){
 			$to      = $recipient;
 			$subject = 'Campsites found by Dan\'s Reserve America Scraper!!!';
 			$message = "There ".$isorare." ".$i." ".$siteorsites." available at ".$parkName." between ".$arr." and ".$dep.".\r\n\r\n".$url;
-			$headers = 'From: noreply@malimish.com' . "\r\n" .
-			    'Reply-To: noreply@malimish.com' . "\r\n" .
+			$headers = 'From: noreply@example.com' . "\r\n" .
+			    'Reply-To: noreply@example.com' . "\r\n" .
 			    'X-Mailer: PHP/' . phpversion();
 			
 			mail($to, $subject, $message, $headers);
